@@ -1,3 +1,15 @@
 .input-group-prepend {
   cursor: pointer;
 }
+
+.job-done {
+  text-decoration: line-through;
+}
+
+.job-not-done {
+  text-decoration: none;
+}
+
+.title {
+  margin-left: 1rem;
+}
