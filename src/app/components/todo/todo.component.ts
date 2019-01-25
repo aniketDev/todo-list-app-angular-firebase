@@ -26,4 +26,17 @@ export class TodoComponent implements OnInit {
     });
   }
 
+  onAdd(itemTitle) {
+    this.service.addTitle(itemTitle.value);
+    itemTitle.value = null;
+  }
+
+  alterCheck($key: string, isChecked) {
+    this.service.checkOrUncheckTitle($key, !isChecked);
+  }
+
+  onDelete($key: string) {
+    this.service.removeTitle($key);
+  }
+
 }

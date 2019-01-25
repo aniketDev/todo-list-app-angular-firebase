@@ -2,7 +2,25 @@
   <h4 class="text-center">To Do List App</h4>
 </div>
 
-<div class="input-group">
-  <input type="text" class="form-control" #itemTitle>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" #itemTitle />
+  <div class="input-group-prepend" (click)="onAdd(itemTitle)">
+    <span class="input-group-text">
+      <i class="fas fa-plus-circle fa-lg"></i>
+    </span>
+  </div>
+</div>
 
+<div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of toDoListArray">
+      <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="alterCheck(item.$key, item.isChecked)">
+        <i class="far fa-lg" [ngClass]="item.isChecked?'fa-check-circle':'fa-circle'"></i>
+      </span>
+      {{item.title}}
+      <span class="hover-cursor text-danger float-right" (click)="onDelete(item.$key)">
+        <i class="fas fa-lg fa-trash-alt"></i>
+      </span>
+    </li>
+  </ul>
 </div>
